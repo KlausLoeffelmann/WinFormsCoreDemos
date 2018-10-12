@@ -47,10 +47,12 @@
             this.ColumnsNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.useTableLayoutPanelRadioButton = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.PanelCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.panelCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.useSideBySidePanelsRadioButton = new System.Windows.Forms.RadioButton();
             this.useScrollablePanelRadioButton = new System.Windows.Forms.RadioButton();
-            this.startButton = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutPerformanceStartButton = new System.Windows.Forms.Button();
+            this.simpleGdiPerformanceTestStartButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -60,7 +62,8 @@
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ColumnsNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PanelCountNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelCountNumericUpDown)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -72,11 +75,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.startButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.99999F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(979, 502);
@@ -86,11 +89,11 @@
             // 
             this.groupBox2.Controls.Add(this.panel2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(10, 218);
+            this.groupBox2.Location = new System.Drawing.Point(10, 215);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(10);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBox2.Size = new System.Drawing.Size(959, 189);
+            this.groupBox2.Size = new System.Drawing.Size(959, 186);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Boxing content";
@@ -111,7 +114,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(10, 29);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(939, 150);
+            this.panel2.Size = new System.Drawing.Size(939, 147);
             this.panel2.TabIndex = 0;
             // 
             // label7
@@ -248,7 +251,7 @@
             this.groupBox1.Location = new System.Drawing.Point(10, 10);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(959, 188);
+            this.groupBox1.Size = new System.Drawing.Size(959, 185);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Basic Layout";
@@ -260,18 +263,19 @@
             this.panel1.Controls.Add(this.ColumnsNumericUpDown);
             this.panel1.Controls.Add(this.useTableLayoutPanelRadioButton);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.PanelCountNumericUpDown);
+            this.panel1.Controls.Add(this.panelCountNumericUpDown);
             this.panel1.Controls.Add(this.useSideBySidePanelsRadioButton);
             this.panel1.Controls.Add(this.useScrollablePanelRadioButton);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(953, 163);
+            this.panel1.Size = new System.Drawing.Size(953, 160);
             this.panel1.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Enabled = false;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(379, 94);
             this.label2.Name = "label2";
@@ -281,6 +285,7 @@
             // 
             // ColumnsNumericUpDown
             // 
+            this.ColumnsNumericUpDown.Enabled = false;
             this.ColumnsNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ColumnsNumericUpDown.Location = new System.Drawing.Point(274, 92);
             this.ColumnsNumericUpDown.Maximum = new decimal(new int[] {
@@ -305,6 +310,7 @@
             // useTableLayoutPanelRadioButton
             // 
             this.useTableLayoutPanelRadioButton.AutoSize = true;
+            this.useTableLayoutPanelRadioButton.Enabled = false;
             this.useTableLayoutPanelRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.useTableLayoutPanelRadioButton.Location = new System.Drawing.Point(25, 92);
             this.useTableLayoutPanelRadioButton.Name = "useTableLayoutPanelRadioButton";
@@ -324,24 +330,24 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "panels lying side by side in a scrollable container.";
             // 
-            // PanelCountNumericUpDown
+            // panelCountNumericUpDown
             // 
-            this.PanelCountNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PanelCountNumericUpDown.Location = new System.Drawing.Point(98, 62);
-            this.PanelCountNumericUpDown.Maximum = new decimal(new int[] {
+            this.panelCountNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelCountNumericUpDown.Location = new System.Drawing.Point(98, 62);
+            this.panelCountNumericUpDown.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.PanelCountNumericUpDown.Minimum = new decimal(new int[] {
+            this.panelCountNumericUpDown.Minimum = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            this.PanelCountNumericUpDown.Name = "PanelCountNumericUpDown";
-            this.PanelCountNumericUpDown.Size = new System.Drawing.Size(99, 26);
-            this.PanelCountNumericUpDown.TabIndex = 2;
-            this.PanelCountNumericUpDown.Value = new decimal(new int[] {
+            this.panelCountNumericUpDown.Name = "panelCountNumericUpDown";
+            this.panelCountNumericUpDown.Size = new System.Drawing.Size(99, 26);
+            this.panelCountNumericUpDown.TabIndex = 2;
+            this.panelCountNumericUpDown.Value = new decimal(new int[] {
             2,
             0,
             0,
@@ -362,6 +368,7 @@
             // useScrollablePanelRadioButton
             // 
             this.useScrollablePanelRadioButton.AutoSize = true;
+            this.useScrollablePanelRadioButton.Checked = true;
             this.useScrollablePanelRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.useScrollablePanelRadioButton.Location = new System.Drawing.Point(25, 32);
             this.useScrollablePanelRadioButton.Name = "useScrollablePanelRadioButton";
@@ -371,17 +378,40 @@
             this.useScrollablePanelRadioButton.Text = "Use only a scrollable Panel as the container control.";
             this.useScrollablePanelRadioButton.UseVisualStyleBackColor = true;
             // 
-            // startButton
+            // flowLayoutPanel1
             // 
-            this.startButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.startButton.Location = new System.Drawing.Point(417, 432);
-            this.startButton.Margin = new System.Windows.Forms.Padding(15);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(145, 54);
-            this.startButton.TabIndex = 2;
-            this.startButton.Text = "Start!";
-            this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.layoutPerformanceStartButton);
+            this.flowLayoutPanel1.Controls.Add(this.simpleGdiPerformanceTestStartButton);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(166, 414);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(646, 84);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // layoutPerformanceStartButton
+            // 
+            this.layoutPerformanceStartButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.layoutPerformanceStartButton.Location = new System.Drawing.Point(15, 15);
+            this.layoutPerformanceStartButton.Margin = new System.Windows.Forms.Padding(15);
+            this.layoutPerformanceStartButton.Name = "layoutPerformanceStartButton";
+            this.layoutPerformanceStartButton.Size = new System.Drawing.Size(293, 54);
+            this.layoutPerformanceStartButton.TabIndex = 3;
+            this.layoutPerformanceStartButton.Text = "Start layout performance test...";
+            this.layoutPerformanceStartButton.UseVisualStyleBackColor = true;
+            this.layoutPerformanceStartButton.Click += new System.EventHandler(this.LayoutPerformanceStartButton_Click);
+            // 
+            // simpleGdiPerformanceTestStartButton
+            // 
+            this.simpleGdiPerformanceTestStartButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.simpleGdiPerformanceTestStartButton.Location = new System.Drawing.Point(338, 15);
+            this.simpleGdiPerformanceTestStartButton.Margin = new System.Windows.Forms.Padding(15);
+            this.simpleGdiPerformanceTestStartButton.Name = "simpleGdiPerformanceTestStartButton";
+            this.simpleGdiPerformanceTestStartButton.Size = new System.Drawing.Size(293, 54);
+            this.simpleGdiPerformanceTestStartButton.TabIndex = 4;
+            this.simpleGdiPerformanceTestStartButton.Text = "Start simple GDI performance test...";
+            this.simpleGdiPerformanceTestStartButton.UseVisualStyleBackColor = true;
+            this.simpleGdiPerformanceTestStartButton.Click += new System.EventHandler(this.SimpleGdiPerformanceTest_Click);
             // 
             // MainForm
             // 
@@ -392,6 +422,7 @@
             this.Name = "MainForm";
             this.Text = "WinForms Core Layout Performance Test";
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -402,7 +433,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ColumnsNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PanelCountNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelCountNumericUpDown)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -425,13 +457,15 @@
         private System.Windows.Forms.NumericUpDown ColumnsNumericUpDown;
         private System.Windows.Forms.RadioButton useTableLayoutPanelRadioButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown PanelCountNumericUpDown;
+        private System.Windows.Forms.NumericUpDown panelCountNumericUpDown;
         private System.Windows.Forms.RadioButton useSideBySidePanelsRadioButton;
         private System.Windows.Forms.RadioButton useScrollablePanelRadioButton;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown measurementsNumericUpDown;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button layoutPerformanceStartButton;
+        private System.Windows.Forms.Button simpleGdiPerformanceTestStartButton;
     }
 }
 

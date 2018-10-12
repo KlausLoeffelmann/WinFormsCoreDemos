@@ -27,80 +27,104 @@ namespace LayoutPerf
             containerControlTypesComboBox.SelectedIndex = 0;
         }
 
-        private void startButton_Click(object sender, EventArgs e)
+        private void LayoutPerformanceStartButton_Click(object sender, EventArgs e)
         {
             ((Button)sender).BeginInvoke(new Action(RunTests));
         }
 
         private void RunTests()
         {
-            var f = new GdiPerf();
-
-            f.ShowDialog();
-            return;
-
             var formCount = measurementsNumericUpDown.Value;
+
+            var columns = !useScrollablePanelRadioButton.Checked ?
+                             panelCountNumericUpDown.Value :
+                             1;
 
             for (int c = 0; c < formCount; c++)
             {
                 var stopWatch = Stopwatch.StartNew();
+
                 var layoutContainer = new LayoutContainerForm { Text = $"Testrun {c}" };
                 layoutContainer.SuspendLayout();
-                var contentContainer_y = 20;
+                var columnPanel_x = 5;
 
-                for (int boxedContainers = 0; boxedContainers < containerPerColumnNumericUpDown.Value; boxedContainers++)
+                for (int columnCount = 0; columnCount < columns; columnCount++)
                 {
-                    var contentContainer = (Control)Activator.CreateInstance((Type)containerControlTypesComboBox.SelectedItem);
-                    contentContainer.Location = new Point(10, contentContainer_y);
-                    contentContainer.AutoSize = true;
-                    contentContainer.Padding = new Padding(10);
+                    var contentContainer_y = 20;
 
-                    contentContainer.Controls.Add(new Label
+                    var columnPanel = new Panel
                     {
-                        Text = $"Control Block #{boxedContainers}",
-                        Font = new Font("Consolas", 24, FontStyle.Bold),
                         AutoSize = true,
-                        TextAlign = ContentAlignment.MiddleCenter,
-                        Margin = new Padding(10)
-                    });
+                        Location = new Point(columnPanel_x, 10)
+                    };
 
-                    contentContainer_y += contentContainer.Height + 5;
-                    var contentPanel_y = 10;
-
-                    for (int contentItems = 0; contentItems < controlPerSurroundingContainerNumericUpDown.Value; contentItems++)
+                    for (int boxedContainers = 0; boxedContainers < containerPerColumnNumericUpDown.Value; boxedContainers++)
                     {
-                        var contentPanel = new Panel
+                        var contentContainer = (Control)Activator.CreateInstance((Type)containerControlTypesComboBox.SelectedItem);
+                        contentContainer.Location = new Point(10, contentContainer_y);
+                        contentContainer.AutoSize = true;
+                        contentContainer.Padding = new Padding(10);
+
+                        contentContainer.Controls.Add(new Label
                         {
-                            Size = new Size(1, 1),
+                            Text = $"Control Block #{boxedContainers}",
+                            Font = new Font("Consolas", 24, FontStyle.Bold),
                             AutoSize = true,
-                            Location = new Point(0, contentPanel_y),
-                            BorderStyle = BorderStyle.Fixed3D,
-                            Padding = new Padding(5)
-                        };
-                        var label = new Label
+                            TextAlign = ContentAlignment.MiddleCenter,
+                            Margin = new Padding(10)
+                        });
+
+                        contentContainer_y += contentContainer.Height + 5;
+                        var contentPanel_y = 10;
+
+                        for (int contentItems = 0; contentItems < controlPerSurroundingContainerNumericUpDown.Value; contentItems++)
                         {
-                            Text = $"Label {boxedContainers + 1}:{contentItems + 1}",
-                            AutoSize = true,
-                            Location = new Point(5, 5)
-                        };
-                        contentPanel.Controls.Add(label);
-                        var textBox = new TextBox
-                        {
-                            Location = new Point(100, 5),
-                            Size = new Size(200, 25)
-                        };
-                        contentPanel.Controls.Add(textBox);
-                        contentContainer.Controls.Add(contentPanel);
-                        contentPanel_y += contentPanel.Height + 10;
+                            var contentPanel = new Panel
+                            {
+                                Size = new Size(1, 1),
+                                AutoSize = true,
+                                Location = new Point(0, contentPanel_y),
+                                BorderStyle = BorderStyle.Fixed3D,
+                                Padding = new Padding(5)
+                            };
+                            var label = new Label
+                            {
+                                Text = $"Label {boxedContainers + 1}:{contentItems + 1}",
+                                AutoSize = true,
+                                Location = new Point(5, 5)
+                            };
+                            contentPanel.Controls.Add(label);
+                            var textBox = new TextBox
+                            {
+                                Location = new Point(100, 5),
+                                Size = new Size(200, 25)
+                            };
+                            contentPanel.Controls.Add(textBox);
+                            contentContainer.Controls.Add(contentPanel);
+                            contentPanel_y += contentPanel.Height + 10;
+                        }
+
+                        columnPanel.Controls.Add(contentContainer);
+                        contentContainer_y += contentContainer.Height + 20;
                     }
-                    layoutContainer.contentContainerPanel.Controls.Add(contentContainer);
-                    contentContainer_y += contentContainer.Height + 20;
+
+                    layoutContainer.contentContainerPanel.Controls.Add(columnPanel);
+                    columnPanel_x += columnPanel.Width + 20;
+
                 }
+
                 layoutContainer.ResumeLayout();
                 layoutContainer.Show();
                 layoutContainer.infoToolStripStatusLabel.Text = $"Testrun: {stopWatch.ElapsedMilliseconds:#,###} ms.";
             }
         }
 
+        private void SimpleGdiPerformanceTest_Click(object sender, EventArgs e)
+        {
+            var f = new GdiPerf();
+
+            f.ShowDialog();
+            return;
+        }
     }
 }
