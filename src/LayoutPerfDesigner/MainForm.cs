@@ -121,9 +121,13 @@ namespace LayoutPerf
 
         private void SimpleGdiPerformanceTest_Click(object sender, EventArgs e)
         {
-            var f = new GdiPerf();
+            new GdiPerfForm().ShowDialog();
+            return;
+        }
 
-            f.ShowDialog();
+        private void fiddleButton_Click(object sender, EventArgs e)
+        {
+            new FiddleForm().ShowDialog();
             return;
         }
     }

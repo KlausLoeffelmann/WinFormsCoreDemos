@@ -53,6 +53,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.layoutPerformanceStartButton = new System.Windows.Forms.Button();
             this.simpleGdiPerformanceTestStartButton = new System.Windows.Forms.Button();
+            this.fiddleButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -384,9 +385,10 @@
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.layoutPerformanceStartButton);
             this.flowLayoutPanel1.Controls.Add(this.simpleGdiPerformanceTestStartButton);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(166, 414);
+            this.flowLayoutPanel1.Controls.Add(this.fiddleButton);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(77, 414);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(646, 84);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(825, 84);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // layoutPerformanceStartButton
@@ -412,6 +414,18 @@
             this.simpleGdiPerformanceTestStartButton.Text = "Start simple GDI performance test...";
             this.simpleGdiPerformanceTestStartButton.UseVisualStyleBackColor = true;
             this.simpleGdiPerformanceTestStartButton.Click += new System.EventHandler(this.SimpleGdiPerformanceTest_Click);
+            // 
+            // fiddleButton
+            // 
+            this.fiddleButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fiddleButton.Location = new System.Drawing.Point(661, 15);
+            this.fiddleButton.Margin = new System.Windows.Forms.Padding(15);
+            this.fiddleButton.Name = "fiddleButton";
+            this.fiddleButton.Size = new System.Drawing.Size(149, 54);
+            this.fiddleButton.TabIndex = 5;
+            this.fiddleButton.Text = "Fiddle...";
+            this.fiddleButton.UseVisualStyleBackColor = true;
+            this.fiddleButton.Click += new System.EventHandler(this.fiddleButton_Click);
             // 
             // MainForm
             // 
@@ -466,6 +480,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button layoutPerformanceStartButton;
         private System.Windows.Forms.Button simpleGdiPerformanceTestStartButton;
+        private System.Windows.Forms.Button fiddleButton;
     }
 }
 

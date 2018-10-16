@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace LayoutPerf
 {
-    public partial class GdiPerf : Form
+    public partial class GdiPerfForm : Form
     {
         private bool _figureEnabled;
 
-        public GdiPerf()
+        public GdiPerfForm()
         {
             InitializeComponent();
         }

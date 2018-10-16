@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GdiPerf.cs">
+    <Compile Include="FiddleForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GdiPerf.Designer.cs">
-      <DependentUpon>GdiPerf.cs</DependentUpon>
+    <Compile Include="FiddleForm.Designer.cs">
+      <DependentUpon>FiddleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GdiPerfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GdiPerfForm.Designer.cs">
+      <DependentUpon>GdiPerfForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LayoutContainerForm.cs">
       <SubType>Form</SubType>
@@ -66,8 +72,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GdiPerf.resx">
-      <DependentUpon>GdiPerf.cs</DependentUpon>
+    <EmbeddedResource Include="FiddleForm.resx">
+      <DependentUpon>FiddleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GdiPerfForm.resx">
+      <DependentUpon>GdiPerfForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LayoutContainerForm.resx">
       <DependentUpon>LayoutContainerForm.cs</DependentUpon>

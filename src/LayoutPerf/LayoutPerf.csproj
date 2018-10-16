@@ -15,8 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\LayoutPerfDesigner\GdiPerf.cs" Link="GdiPerf.cs" />
-    <Compile Include="..\LayoutPerfDesigner\GdiPerf.Designer.cs" Link="GdiPerf.Designer.cs" />
+    <Compile Include="..\LayoutPerfDesigner\FiddleForm.cs" Link="FiddleForm.cs" />
+    <Compile Include="..\LayoutPerfDesigner\FiddleForm.Designer.cs" Link="FiddleForm.Designer.cs" />
+    <Compile Include="..\LayoutPerfDesigner\GdiPerfForm.cs" Link="GdiPerfForm.cs" />
+    <Compile Include="..\LayoutPerfDesigner\GdiPerfForm.Designer.cs" Link="GdiPerfForm.Designer.cs" />
     <Compile Include="..\LayoutPerfDesigner\LayoutContainerForm.cs" Link="LayoutContainerForm.cs" />
     <Compile Include="..\LayoutPerfDesigner\LayoutContainerForm.Designer.cs" Link="LayoutContainerForm.Designer.cs" />
     <Compile Include="..\LayoutPerfDesigner\MainForm.cs" Link="MainForm.cs" />
@@ -24,7 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="..\LayoutPerfDesigner\GdiPerf.resx" Link="GdiPerf.resx" />
+    <EmbeddedResource Include="..\LayoutPerfDesigner\FiddleForm.resx" Link="FiddleForm.resx" />
+    <EmbeddedResource Include="..\LayoutPerfDesigner\GdiPerfForm.resx" Link="GdiPerfForm.resx" />
     <EmbeddedResource Include="..\LayoutPerfDesigner\LayoutContainerForm.resx" Link="LayoutContainerForm.resx" />
     <EmbeddedResource Include="..\LayoutPerfDesigner\MainForm.resx" Link="MainForm.resx" />
   </ItemGroup>

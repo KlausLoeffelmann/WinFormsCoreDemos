@@ -1,6 +1,6 @@
 ﻿namespace LayoutPerf
 {
-    partial class GdiPerf
+    partial class GdiPerfForm
     {
         /// <summary>
         /// Required designer variable.
