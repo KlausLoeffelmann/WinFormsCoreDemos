@@ -14,7 +14,7 @@ namespace LayoutPerf
         [STAThread]
         static void Main()
         {
-            ApplicationExtender.SetHighDpiMode(HighDpiMode.PerMonitorV2);
+            Application.SetHighDpiMode(HighDpiMode.DpiUnaware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

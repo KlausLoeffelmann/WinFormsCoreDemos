@@ -1,8 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,9 +32,4 @@
     <EmbeddedResource Include="..\LayoutPerfDesigner\LayoutContainerForm.resx" Link="LayoutContainerForm.resx" />
     <EmbeddedResource Include="..\LayoutPerfDesigner\MainForm.resx" Link="MainForm.resx" />
   </ItemGroup>
-
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.DesktopUI" />
-  </ItemGroup>
-
 </Project>

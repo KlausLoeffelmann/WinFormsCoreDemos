@@ -20,19 +20,28 @@ namespace LayoutPerf
             InitializeComponent();
         }
 
+        private void FixedSizeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            if (fixedSizeRadioButton.Checked)
+            {
+                containerPanelsClientAreaRadioButton.Checked = false;
+            }
+        }
+
         private void containerPanelsClientAreaRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if ( containerPanelsClientAreaRadioButton.Checked)
             {
+                fixedSizeRadioButton.Checked = false;
                 canvasPanel.Dock = DockStyle.Fill;
-                panelWidthNumericUpDown.Enabled = false;
                 panelHeightNumericUpDown.Enabled = false;
+                panelWidthNumericUpDown.Enabled = false;
             }
             else
             {
                 canvasPanel.Dock = DockStyle.None;
-                panelWidthNumericUpDown.Enabled = true;
                 panelHeightNumericUpDown.Enabled = true;
+                panelWidthNumericUpDown.Enabled = true;
                 canvasPanel.Height = (int) panelHeightNumericUpDown.Value;
                 canvasPanel.Width = (int) panelWidthNumericUpDown.Value;
             }
@@ -80,5 +89,6 @@ namespace LayoutPerf
                 infoToolStripStatusLabel.Text = $"Testrun: {stopWatch.ElapsedMilliseconds:#,###} ms.";
             }
         }
+
     }
 }
